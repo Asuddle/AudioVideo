@@ -1,0 +1,8 @@
+body {
+    padding: 20px;
+}
+
+video {
+    max-width: 100%;
+    /*filter: url(#);*/
+}

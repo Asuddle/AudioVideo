@@ -1,0 +1,53 @@
+{
+  "name": "testing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@videojs/http-streaming": "^1.13.0",
+    "bootstrap": "^4.4.1",
+    "nouislider": "^14.1.1",
+    "react": "^16.13.0",
+    "react-compound-slider": "^2.5.0",
+    "react-dom": "^16.13.0",
+    "react-scripts": "3.4.0",
+    "reactstrap": "^8.4.1",
+    "videocontext": "^0.54.0",
+    "videojs-contrib-quality-levels": "^2.0.9",
+    "videojs-hotkeys": "^0.2.25",
+    "videojs-offset": "^2.1.2",
+    "videojs-overlay": "^2.1.4",
+    "videojs-resolution-switcher": "^0.4.2",
+    "videojs-rotate-player-plugin": "^1.0.1",
+    "videojs-rotatezoom": "0.0.1",
+    "videojs-skin-colors": "^1.0.3",
+    "videojs-sprite-thumbnails": "^0.5.2",
+    "videojs-thumbnails": "^1.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "video.js": "^7.6.6"
+  }
+}

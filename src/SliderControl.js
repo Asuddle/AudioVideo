@@ -2,9 +2,6 @@ import React, {useState} from 'react';
 import {Handle, SliderRail, Tick, Track} from "./Component";
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
-import {Button} from "reactstrap";
-import Row from "reactstrap/es/Row";
-import Col from "reactstrap/es/Col";
 const sliderStyle = {
     position: 'relative',
     width: '100%',

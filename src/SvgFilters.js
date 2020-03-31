@@ -39,7 +39,7 @@ const SvgFilters = () => {
                                 0      0      0      1 0"/>
                     </filter>
                     <filter id="convolve2">
-                        <feConvolveMatrix filterRes="100 100" style={{"color-interpolation-filters":"sRGB"}} order="3" kernelMatrix="0 -1 0   -1 4 -1   0 -1 0" preserveAlpha="true"/>
+                        <feConvolveMatrix filterRes="100 100" style={{"colorInterpolationFilters":"sRGB"}} order="3" kernelMatrix="0 -1 0   -1 4 -1   0 -1 0" preserveAlpha="true"/>
                     </filter>
                     <filter id="offset" x="-10%" y="-20%" height="230%" width="140%" transform="translate(90,0)">
                         <feGaussianBlur stdDeviation="14"/>
@@ -53,9 +53,8 @@ const SvgFilters = () => {
                         <feGaussianBlur stdDeviation="1"/>
                     </filter>
                     <filter id="myconvolve">
-                        <feConvolveMatrix filterRes="100 100" style={{"color-interpolation-filters":"sRGB", "order":"3"
+                        <feConvolveMatrix filterRes="100 100" style={{"colorInterpolationFilters":"sRGB", "order":"3"
                             ,"kernelMatrix":"0 -1 0   -1 4 -1   0 -1 0" ,"preserveAlpha":"true"
-
                         }}/>
                     </filter>
                     <filter id="displacement" x="0%" y="0%" height="100%" width="100%">

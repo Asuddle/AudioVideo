@@ -141,3 +141,45 @@
 // </button>
 
 
+
+// style={{width: '500px',height:'70px'}}
+
+// clickVideo=()=> {
+//     console.log('paused',this.player.paused())
+//     if(!this.player.paused()){
+//         let time=this.player.duration()
+//         this.setState({time:this.player.duration})
+//         this.props.getDuration(time)
+//     }
+// // }
+//
+// var video = document.querySelector('video'),
+//     button = document.getElementById('style-btn'),
+//     current = document.querySelector('button span'),
+//     filters = ['blur','inverse','convolve','convoblur','offset','convolve2','blackandwhite','noir','bluefill','displacement'],
+//     i = 0;
+// if(document.getElementById('drop-down')!==null)
+// {   document.getElementById('drop-down').addEventListener('change',function() {
+//        // current.innerHTML = this.state.filters;
+//     console.log(this.state)
+//        // video.style.webkitFilter = 'url(#' + this.state.filters + ')';
+//        // video.style.mozFilter = 'url(#' + this.state.filters + ')';
+//        // video.style.filter = 'url(#' + this.state.filters + ')';
+//
+//    })}
+// var video = document.querySelector('video'),
+//     button = document.getElementById('style-btn'),
+//     current = document.querySelector('button span'),
+//     filters = ['blur','inverse','convolve','convoblur','offset','convolve2','blackandwhite','noir','bluefill','displacement'],
+//     i = 0;
+//
+// // document.getElementById('style-btn').addEventListener('click',function(){
+// document.getElementById('drop-down').addEventListener('change',function() {
+//     current.innerHTML = this.state.filter;
+//     video.style.webkitFilter = 'url(#' + this.state.filter + ')';
+//     video.style.mozFilter = 'url(#' + this.state.filter + ')';
+//     video.style.filter = 'url(#' + this.state.filter + ')';
+//
+// })
+
+

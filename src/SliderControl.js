@@ -4,7 +4,7 @@ import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
 const sliderStyle = {
     position: 'relative',
-    width: '100%',
+    width: '55%',
 }
 const defaultValues = [250, 350]
 const SliderControl = (props) => {
@@ -22,7 +22,7 @@ const SliderControl = (props) => {
     <Slider
         style={{position:'relative'}}
         mode={1}
-        step={domain[1]/20}
+        step={domain[1]/50}
         domain={domain}
         reversed={reversed}
         rootStyle={sliderStyle}

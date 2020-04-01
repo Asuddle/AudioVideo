@@ -22,6 +22,7 @@ import Row from "reactstrap/es/Row";
 import Col from "reactstrap/es/Col";
 import Slider from "./Slider";
 import SvgFilters from "./SvgFilters";
+const  filters = ['blur','inverse','convolve','convoblur','offset','convolve2','blackandwhite','noir','bluefill','displacement']
 
 let Filter=''
 let GetPlayer=''
@@ -99,6 +100,7 @@ const Overview = () =>{
     const [offset, setOffset] = useState([0,0]);
     const [detail, showDetail] = useState(false);
     const [save, setSave] = useState(false);
+    const [resolution, setResolution] = useState('480p');
     // const [filter, setFilter] = useState('none');
     const [trimvideo, setTrimVideo] = useState('Trim Video');
     let videoJsOptions = {
@@ -113,6 +115,7 @@ const Overview = () =>{
         language: 'es',
         playbackRates: [0.25, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4],
         // aspectRatio: '4:3',
+        resolution:resolution,
         breakpoints: {medium: 100},
         thumbnail:sprite,
         plugins: {
@@ -231,28 +234,24 @@ const Overview = () =>{
         Offset:offset,
         Filter:Filter
     })}
-    console.log('filter here', duration)
+    let getResolution=(props)=>{
+        setResolution(props)
+    }
+   let handleFilter=(e)=>{
+        let video=document.querySelector('video')
+        Filter=e.target.value
+        if(e.target.value=='no'){
+            video.style.filter = '';
+        }else {
+            video.style.webkitFilter = 'url(#' + e.target.value + ')';
+            video.style.mozFilter = 'url(#' + e.target.value + ')';
+            video.style.filter = 'url(#' + e.target.value + ')';
+        }
+
+    }
+
     return(
         <div>
-            <br/>
-            <br/>
-            <Row>
-                <Col>
-                    <h3>Video Upload</h3>
-                </Col>
-                <Col>
-                    <Button color="success" onClick={addVideo}> + Add Video</Button>
-                </Col>
-            </Row>
-            <br/>
-            {submit&&
-            <React.Fragment>
-                <Button className='float-right'  color='danger' onClick={handleRemove}>Remove Video</Button>
-                {(duration===false||save)&& <Button  className='float-right' color='secondary' onClick={UpdateOffset}>{trimvideo}</Button>}
-                <Button className='float-right' onClick={saveVideo} color='success'>Save Video</Button>
-            </React.Fragment>}
-
-
             <React.Fragment>
                 <Modal isOpen={modal} toggle={toggle} >
                     <ModalHeader toggle={toggle}>Video</ModalHeader>
@@ -277,7 +276,7 @@ const Overview = () =>{
                         {
                             images.map(item=>{
                                 return(
-                                    <img value={item} style={{display:thumbnail?'none':''}} width='30%' height='100px'  src={item} onClick={(e)=>{handlePoster(e)}}/>
+                                    <img value={item} key={item} style={{display:thumbnail?'none':''}} width='30%' height='100px'  src={item} onClick={(e)=>{handlePoster(e)}}/>
                                 )
                             })
                         }
@@ -320,24 +319,56 @@ const Overview = () =>{
                     </ModalFooter>
                 </Modal>
             </React.Fragment>
-            <div>
-                {submit&&
-                <Videojs
-                                  getPlayer={getPlayer}
-                                  getDuration={getDuration}
-                                  currentTime={update}
-                                  {...videoJsOptions}
-                                  handleFilter={getFilter}
-                />}
+            <Row>
+                <Col md={7}>
+                        <h3>Video Upload</h3>
+                    <br/>
+                {submit &&
+                    <Videojs
+                        getPlayer={getPlayer}
+                        getDuration={getDuration}
+                        currentTime={update}
+                        {...videoJsOptions}
+                        handleFilter={getFilter}
+                        getResolution={getResolution}
+                    />
+                }
                 <Slider
                     updateOffset={UpdateOffset}
                     duration={duration}
                     onUpdate={onUpdate}
                     setOffset={SetOffset}
                    />
+                </Col>
+                <Col md={5}>
                 <br/>
+                    <Button color="success" onClick={addVideo}> + Add Video</Button>
+                    <br/>
+                    <br/>
+                    {submit&&
+                    <React.Fragment>
+                        <br/>
+                        <Button className='float-right'  color='danger' onClick={handleRemove}>Remove Video</Button>
+                        {(duration===false||save)&& <Button  className='float-right' color='secondary' onClick={UpdateOffset}>{trimvideo}</Button>}
+                        <Button className='float-right' onClick={saveVideo} color='success'>Save Video</Button>
+
+                        <h3><strong>Filters</strong></h3>
+                    <select id="drop-down" style={{width: '80%', margin: '10%'}} onChange={(e) => handleFilter(e)}>
+                    {<React.Fragment>
+                        <option value='no' defaultChecked>none</option>
+                        {filters.map(item => {
+                            return (
+                                <option key={item} value={item}>{item}</option>
+                            )
+                        })}
+                    </React.Fragment>
+                    }
+                </select>
+                    </React.Fragment>
+                        }
                 <SvgFilters/>
-            </div>
+                </Col>
+            </Row>
         </div>
     )
 }

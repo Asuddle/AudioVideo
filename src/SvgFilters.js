@@ -61,7 +61,7 @@ const SvgFilters = () => {
                         <feDisplacementMap scale="100" in2="SourceGraphic" xChannelSelector="G"/>
                     </filter>
                     <filter id="bluefill" x="0%" y="0%" width="100%" height="100%">
-                        <feFlood flood-color="blue" result="A"/>
+                        <feFlood floodColor="blue" result="A"/>
                         <feColorMatrix type="matrix" in="SourceGraphic" result="B" values="1   0  0  0 0
                            0   1  0  0 0
                            0   0  1  0 0

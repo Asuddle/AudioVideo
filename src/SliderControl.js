@@ -4,7 +4,7 @@ import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
 const sliderStyle = {
     position: 'relative',
-    width: '55%',
+    width: '100%',
 }
 const defaultValues = [250, 350]
 const SliderControl = (props) => {

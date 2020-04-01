@@ -6,7 +6,7 @@ import Row from "reactstrap/es/Row";
 import Col from "reactstrap/es/Col";
 import './VideoResolution.css'
 const  filters = ['blur','inverse','convolve','convoblur','offset','convolve2','blackandwhite','noir','bluefill','displacement']
-
+let Resolution=null
 export default class VideoPlayer extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ export default class VideoPlayer extends React.Component {
         let data={...this.props,plugins: {
                 ...this.props.plugins,
                 videoJsResolutionSwitcher: {
-                                                default: '480p',
+                                                default: this.props.resolution,
                                                 dynamicLabel: true
                                                 }}}
 
@@ -44,11 +44,14 @@ export default class VideoPlayer extends React.Component {
             'Duration': 'Duración total',
             'Remaining Time': 'Tiempo restante',
         });
-        this.player.on('resolutionchange', function(){
-            console.info('Source changed')
+         this.player.on('resolutionchange', function(){
+            let Label=this.currentResolution().label
+            Resolution=Label
+            console.log('resolution',Resolution)
+            console.info('Source changed to %s', Resolution)
         })
-    }
 
+    }
     componentDidUpdate(prevProps, prevState, snapshot) {
      if(prevProps!==this.props){
         if (prevProps.plugins.offset.start !== this.props.plugins.offset.start
@@ -106,18 +109,18 @@ export default class VideoPlayer extends React.Component {
                 </div>}
                     </Col>
                     <Col>
-                        <h3><strong>Filters</strong></h3>
-              <select id="drop-down" style={{width:'80%'}} onChange={(e)=>this.handleFilter(e)}>
-                  { <React.Fragment>
-                      <option value='no' defaultChecked>none</option>
-                      {filters.map(item=>{
-                          return (
-                          <option value={item}>{item}</option>
-                          )
-                      })}
-                  </React.Fragment>
-                  }
-                </select>
+                        {/*<h3><strong>Filters</strong></h3>*/}
+                        {/*<select id="drop-down" style={{width:'80%'}} onChange={(e)=>this.handleFilter(e)}>*/}
+                        {/*    { <React.Fragment>*/}
+                        {/*        <option value='no' defaultChecked>none</option>*/}
+                        {/*        {filters.map(item=>{*/}
+                        {/*            return (*/}
+                        {/*                <option value={item}>{item}</option>*/}
+                        {/*            )*/}
+                        {/*        })}*/}
+                        {/*    </React.Fragment>*/}
+                        {/*    }*/}
+                        {/*</select>*/}
                     </Col>
                 </Row>
             </div>

@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Handle, SliderRail, Tick, Track} from "./Component";
+import React, {Component, useState} from 'react';
+import {Handle, SliderRail, Tick, Track} from "../Components/Component"
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
 const sliderStyle = {

@@ -7,21 +7,20 @@ import overlay from 'videojs-overlay'
 import spriteThumbnails from 'videojs-sprite-thumbnails'
 import titleoverlay from 'videojs-titleoverlay'
 
-
 import test1 from './images/test1.jpg'
 import test2 from './images/test2.jpeg'
 import test3 from './images/test3.jpeg'
 import test4 from './images/test4.jpeg'
 import test5 from './images/test5.jpg'
-import test6 from'./images/test6.jpg'
-import test7 from'./images/test7.jpg'
-import test8 from'./images/test8.jpg'
+import test6 from './images/test6.jpg'
+import test7 from './images/test7.jpg'
+import test8 from './images/test8.jpg'
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Row from "reactstrap/es/Row";
 import Col from "reactstrap/es/Col";
 import Slider from "./Slider";
-import SvgFilters from "./SvgFilters";
+import SvgFilters from "./Filter/SvgFilters";
 const  filters = ['blur','inverse','convolve','convoblur','offset','convolve2','blackandwhite','noir','bluefill','displacement']
 
 let Filter=''
@@ -33,7 +32,6 @@ const Overview = () =>{
     const defaultValues = [250, 350]
     const[domain,setDomain]=useState([0,100])
     const[update,setUpdate]=useState(defaultValues.slice())
-    const[player,setPlayer]=useState({})
     const[sprite,setSprite]=useState(false)
 
 
@@ -104,7 +102,6 @@ const Overview = () =>{
     // const [filter, setFilter] = useState('none');
     const [trimvideo, setTrimVideo] = useState('Trim Video');
     let videoJsOptions = {
-        // autoplay: true,
         controls: true,
         sources: video,
         poster: thumbnail,
@@ -144,12 +141,10 @@ const Overview = () =>{
         let file = e.target.files[0];
         let blobURL = URL.createObjectURL(file);
         setSprite(blobURL)
-        setSprite(blobURL)
     }
     let handlePicture=(e)=>{
         let file = e.target.files[0];
         let blobURL = URL.createObjectURL(file);
-        console.log(blobURL)
         setThumbNail(blobURL)
     }
     let handleRemove=()=>{
@@ -178,15 +173,11 @@ const Overview = () =>{
 
     let getPlayer=(props)=>{
         GetPlayer=props
-        // setPlayer(props)
-
-
     }
     let  saveVideo=()=>{ showDetail(true) }
 
 
     let UpdateOffset=()=>{
-        console.log('player here in update offset',GetPlayer)
         if(duration!==false){
             setTrimVideo('Trim Video')
             setDuration(false)
@@ -226,7 +217,7 @@ const Overview = () =>{
     }
     // console.log('origin',window.location.origin)
     {detail&&
-    console.log({
+         console.log({
         Poster:thumbnail,
         Sprite:sprite,
         Video:video[0].src,
@@ -234,6 +225,7 @@ const Overview = () =>{
         Offset:offset,
         Filter:Filter
     })}
+
     let getResolution=(props)=>{
         setResolution(props)
     }
@@ -374,8 +366,3 @@ const Overview = () =>{
 }
 
 export  default Overview
-
-// updateOffset={UpdateOffset}
-// duration={duration}
-// onUpdate={onUpdate}
-// setOffset={SetOffset}

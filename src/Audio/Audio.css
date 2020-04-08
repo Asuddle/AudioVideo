@@ -1,0 +1,17 @@
+.thumb{
+    color:blue;
+    background: pink;
+}
+.track{
+    color:orange;
+    background: yellow;
+}
+.horizontal-slider{
+    color:purple;
+    background: blueviolet;
+}
+
+.rhap_volume-bar-area{
+    position: relative;
+    top: 13px;
+}

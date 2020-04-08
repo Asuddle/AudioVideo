@@ -19,7 +19,7 @@ export default class VideoPlayer extends React.Component {
 
     componentDidMount() {
         if(window)window.videojs=videojs
-        require('./VideoResolution')
+        require('../Components/VideoResolution')
         this.intializeVideo()
     }
     intializeVideo=()=>{
@@ -50,7 +50,6 @@ export default class VideoPlayer extends React.Component {
             console.log('resolution',Resolution)
             console.info('Source changed to %s', Resolution)
         })
-
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
      if(prevProps!==this.props){
@@ -108,44 +107,8 @@ export default class VideoPlayer extends React.Component {
                     <video  ref={ node  => this.videoNode = node } className=" video-js vjs-big-play-centered  vjs-theme-city video-js"></video>
                 </div>}
                     </Col>
-                    <Col>
-                        {/*<h3><strong>Filters</strong></h3>*/}
-                        {/*<select id="drop-down" style={{width:'80%'}} onChange={(e)=>this.handleFilter(e)}>*/}
-                        {/*    { <React.Fragment>*/}
-                        {/*        <option value='no' defaultChecked>none</option>*/}
-                        {/*        {filters.map(item=>{*/}
-                        {/*            return (*/}
-                        {/*                <option value={item}>{item}</option>*/}
-                        {/*            )*/}
-                        {/*        })}*/}
-                        {/*    </React.Fragment>*/}
-                        {/*    }*/}
-                        {/*</select>*/}
-                    </Col>
                 </Row>
             </div>
         )
     }
 }
-
-
-
-
-// clickVideo=()=> {
-//         let time=this.player.duration()
-//     // this.setState({showSlider:true,time:time})
-//     // this.player.play()
-// }
-
-
-{/*{this.props.duration&&*/}
-{/*<React.Fragment>*/}
-{/*<SliderControl*/}
-{/*    update={this.props.currentTime}  domain={this.props.duration}*/}
-{/*    onUpdate={this.props.onUpdate}    UpdateOffset={this.props.updateOffset}*/}
-{/*/>*/}
-{/*<br/>*/}
-{/*<br/>*/}
-{/*<Button onClick={this.props.setOffset}>Trim</Button>*/}
-{/*</React.Fragment>*/}
-{/*}*/}

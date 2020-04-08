@@ -5,7 +5,6 @@ import SliderControl from "./SliderControl";
 import {Button} from "reactstrap";
 import Row from "reactstrap/es/Row";
 import Col from "reactstrap/es/Col";
-import DataContext from "./DataContext";
 
 export default class Slider extends React.Component {
     constructor(props) {
@@ -14,8 +13,7 @@ export default class Slider extends React.Component {
             video:true,
             showSlider:props.duration,
             state:'',
-            filter:'',
-            player:DataContext
+            filter:''
         }
     }
 
@@ -44,9 +42,3 @@ export default class Slider extends React.Component {
         )
     }
 }
-
-// clickVideo=()=> {
-//         let time=this.player.duration()
-//     // this.setState({showSlider:true,time:time})
-//     // this.player.play()
-// }

@@ -1,0 +1,18 @@
+body {
+    padding: 20px;
+}
+
+video {
+    max-width: 100%;
+    /*filter: url(#);*/
+}
+.title-overlay-container {
+    position: absolute;
+    top: 0;
+    background-color: #333333d1;
+    width: 100%;
+    padding: 10px;
+}
+.title-overlay-container span {
+    font-size: 2em !important;
+}
